@@ -80,7 +80,7 @@ jobs:
               'name': 'AngryVillagers ${TAG}',
               'version_number': '${TAG}',
               'version_type': 'release',
-              'project_id': 'angry-villagers',
+              'project_id': 'infrastructuresickos-angry-villagers',
               'dependencies': [
                   {'project_id': 'village-flag', 'dependency_type': 'required'}
               ],
@@ -133,7 +133,7 @@ jobs:
 
           entry_found = False
           for mod in mods:
-              if mod.get('modrinth_project_id') == 'angry-villagers':
+              if mod.get('modrinth_project_id') == 'infrastructuresickos-angry-villagers':
                   mod['version_id'] = version_id
                   entry_found = True
                   break
@@ -141,7 +141,7 @@ jobs:
           if not entry_found:
               mods.append({
                   'name': 'Angry Villagers',
-                  'modrinth_project_id': 'angry-villagers',
+                  'modrinth_project_id': 'infrastructuresickos-angry-villagers',
                   'version_id': version_id
               })
               print(f'Added new entry for angry-villagers: {version_id}')
@@ -161,5 +161,5 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add mods-list.json
-          git commit -m "chore: update angry-villagers to modrinth version ${MODRINTH_VERSION_ID}"
+          git commit -m "chore: update infrastructuresickos-angry-villagers to modrinth version ${MODRINTH_VERSION_ID}"
           git push
